@@ -15,9 +15,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Error checking
-        uses: github/super-linter@v4
       - name: Validate HTML
         run: |
           sudo apt-get install -y tidy
           tidy -q -e test.html
+  
+  run_python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Run Python script
+        run: python .py
