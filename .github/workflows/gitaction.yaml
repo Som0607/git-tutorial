@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Error checking
-        uses: github/super-linter@v3
+        uses: github/super-linter@v4
       - name: Validate HTML
         run: |
           sudo apt-get install -y tidy
